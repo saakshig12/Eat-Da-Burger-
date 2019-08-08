@@ -1,47 +1,61 @@
-<h1>Eat Da Burger!</h1>
+<div class="container">
+  <div class="jumbotron">
+    <h1>Eat Da Burger!</h1>
+    <h2>Add a Burger</h2>
+    <div class="containter">
+      <form class="create-form">
 
-<h2>Burger Menu</h2>
+        <div class="form-group">
+          <label for="burger">Burger Name:</label>
+          <input type="text" id="burger" name="name">
+        </div>
 
-<ul>
-  {{#each burgers}}
-    {{#if false}}
-    {{else}}
-    <li>{{burger_name}}</li>
-    {{/if}}
-  {{/each}}
-</ul>
+        <button type="submit">Add Burger</button>
 
-<h2>Burgers devoured:</h2>
+      </form>
 
-<ul>
-  {{#each burgers}}
-  {{#if devoured}}
-  <li>{{burger_name}}</li>
-  {{/if}}
-  {{/each}}
-</ul>
+      <form class="delete-form">
 
-<h2>Add a Burger</h2>
-<form class="create-form">
-
-  <div class="form-group">
-    <label for="burger">Burger Name:</label>
-    <input type="text" id="burger" name="name">
+        {{#each burgers}}
+        <button class="change-devour" data-id="{{id}}">Delete {{name}}</button>
+        {{/each}}
+      </form>
+    </div>
   </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="panel panel-default">
+        <div class="panel-heading" id="lefthead"><h2>Burger Menu:</h2></div>
 
-  <div class="form-group">
-    <label for="devoured">Devoured</label><br>
-    <input type="radio" name="devoured" value="1" checked> Eaten!<br>
-    <input type="radio" name="devoured" value="0"> Edible
+        <ul>
+          {{#each burgers}}
+          {{#if false}}
+          {{else}}
+          <li>{{burger_name}}</li>
+          {{/if}}
+          {{/each}}
+        </ul>
+        <div class="form-group">
+          <label for="devoured">Devoured</label><br>
+          <input type="radio" name="devoured" value="1" checked> Eaten!<br>
+          <input type="radio" name="devoured" value="0"> Eating
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-6">
+      <div class="panel panel-default">
+        <div class="panel-heading" id="lefthead"><h2>Burgers devoured: </h2></div>
+        <ul>
+          {{#each burgers}}
+          {{#if devoured}}
+          <li>{{burger_name}}</li>
+          {{/if}}
+          {{/each}}
+        </ul>
+      </div>
+
+    </div>
   </div>
+</div>
 
-  <button type="submit">Add Burger</button>
-
-</form>
-
-<form class="delete-form">
-
-  {{#each burgers}}
-  <button class="change-devour" data-id="{{id}}">Delete {{name}}</button>
-  {{/each}}
-</form>
