@@ -29,7 +29,7 @@ router.put("/api/burger/:id", function (req, res) {
     var condition = "id = " + req.params.id;
 
     console.log("condition", condition);
-
+    console.log("new burger added");
     burger.update({
         devoured: req.body.devoured
     }, condition, function (result) {

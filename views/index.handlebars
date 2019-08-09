@@ -11,9 +11,8 @@
 
         <ul>
           {{#each burgers}}
-          {{#if false}}
-          {{else}}
-          <li>{{burger_name}}</li>
+          {{#if devoured}}
+          <li>{{burger_name/burger-block devoured=false}}</li>
           {{/if}}
           {{/each}}
         </ul>
@@ -25,9 +24,9 @@
         <div class="panel-heading" id="lefthead"><h2>Burgers devoured: </h2></div>
         <ul>
           {{#each burgers}}
-          {{#if devoured}}
-          <li>{{burger_name}}</li>
-          {{/if}}
+          {{#unless devoured}}
+          <li>{{burger_name/burger-block devoured=true}}</li>
+          {{/unless}}
           {{/each}}
         </ul>
       </div>
